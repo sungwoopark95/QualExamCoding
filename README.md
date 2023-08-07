@@ -19,7 +19,7 @@
 | :---------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | Week1 <br> 2023-08-07 ~ 2023-08-13  |                  컴기 숙제 한 번씩 풀어보기                  |                                                              |
 |       Week2<br /> 2023-08-14        |               2022 & 2023 논자시 기출 풀어보기               |                                                              |
-| Week2<br /> 2023-08-15 ~ 2023-08-20 | 컴기 & 논자시 기출 바탕으로 리트코드 or 백준 문제집 하나 정해서 풀기 | [바킹독 강의](https://www.youtube.com/watch?v=LcOIobH7ues&list=PLtqbFd2VIQv4O6D6l9HcD732hdrnYb6CY)<br />[바킹독 문제집](https://github.com/encrypted-def/basic-algo-lecture)<br />[Leetcode](https://leetcode.com/problemset/all/) |
+| Week2<br /> 2023-08-15 ~ 2023-08-20 | 컴기 & 논자시 기출 바탕으로 리트코드 or 백준 문제집 하나 정해서 풀기 | [바킹독 강의](https://www.youtube.com/watch?v=LcOIobH7ues&list=PLtqbFd2VIQv4O6D6l9HcD732hdrnYb6CY){:target="_blank"}<br />[바킹독 문제집](https://github.com/encrypted-def/basic-algo-lecture){:target="_blank"}<br />[Leetcode](https://leetcode.com/problemset/all/){:target="_blank"} |
 | Week3<br /> 2023-08-21 ~ 2023-08-27 |                                                              |                                                              |
 | Week4<br /> 2023-08-28 ~ 2023-09-03 |                                                              |                                                              |
 | Week5<br /> 2023-09-04 ~ 2023-09-10 |                                                              |                                                              |
