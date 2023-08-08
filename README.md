@@ -17,13 +17,13 @@
 
 |                주차                 |                             내용                             |                             링크                             |
 | :---------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| Week1 <br> 2023-08-07 ~ 2023-08-13  |                  컴기 숙제 한 번씩 풀어보기                  |                                                              |
+| Week1 <br> 2023-08-07 - 2023-08-13  |                  컴기 숙제 한 번씩 풀어보기                  |                                                              |
 |       Week2<br /> 2023-08-14        |               2022 & 2023 논자시 기출 풀어보기               |                                                              |
-| Week2<br /> 2023-08-15 ~ 2023-08-20 | 컴기 & 논자시 기출 바탕으로 리트코드 or 백준 문제집 하나 정해서 풀기 | <a href="https://www.youtube.com/watch?v=LcOIobH7ues&list=PLtqbFd2VIQv4O6D6l9HcD732hdrnYb6CY" target="_blank">바킹독 강의</a><br /><a href="https://github.com/encrypted-def/basic-algo-lecture" target="_blank">바킹독 문제집</a><br /><a href="https://leetcode.com/problemset/all/" target="_blank">Leetcode</a> |
-| Week3<br /> 2023-08-21 ~ 2023-08-27 |                                                              |                                                              |
-| Week4<br /> 2023-08-28 ~ 2023-09-03 |                                                              |                                                              |
-| Week5<br /> 2023-09-04 ~ 2023-09-10 |                                                              |                                                              |
-| Week5<br /> 2023-09-11 ~ 2023-09-17 |         :exclamation: **최 종 정 리** :exclamation:          |                                                              |
+| Week2<br /> 2023-08-15 - 2023-08-20 |       컴1 과제 & 알고리즘 각 언어로 한 번씩 구현해보기       |                                                              |
+| Week3<br /> 2023-08-21 - 2023-08-27 | 컴기 & 논자시 기출 바탕으로 리트코드 or 백준 문제집 하나 정해서 풀기 | <a href="https://www.youtube.com/watch?v=LcOIobH7ues&list=PLtqbFd2VIQv4O6D6l9HcD732hdrnYb6CY" target="_blank">바킹독 강의</a><br /><a href="https://github.com/encrypted-def/basic-algo-lecture" target="_blank">바킹독 문제집</a><br /><a href="https://leetcode.com/problemset/all/" target="_blank">Leetcode</a> |
+| Week4<br /> 2023-08-28 - 2023-09-03 |                                                              |                                                              |
+| Week5<br /> 2023-09-04 - 2023-09-10 |                                                              |                                                              |
+| Week5<br /> 2023-09-11 - 2023-09-17 |         :exclamation: **최 종 정 리** :exclamation:          |                                                              |
 
 
 
