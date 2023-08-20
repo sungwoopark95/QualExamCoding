@@ -27,33 +27,17 @@
 
 
 
-## :spiral_notepad: Daily Tasks (to be updated)
+## :spiral_notepad: Progress Updates (to be updated)
 
-|    날짜    |          Tasks           |                        내용                        |
-| :--------: | :---------------------: | :-----------------------------------------------: |
-| 2023-08-08 |        HW3 - HW6        |        `Python` 기초 ~ File I/O in `Python`        |
-| 2023-08-09 |  HW7, HW14, HW17, HW19  |        `Python` 응용, `C` 기초 및 string 처리         |
-| 2023-08-10 |        HW8, HW9         | Sorting, Stack, Queue, and Linked List (`Python`) |
-| 2023-08-11 |       HW10, HW11        |                BFS & DFS (`Python`)               |
-| 2023-08-12 |       HW12, HW18        |       Hashing (`Python`) & 수학 알고리즘 (`C`)       |
-| 2023-08-13 |       HW20, HW21        |             File I/O in `C` & `C` 응용             |
-| 2023-08-14 |   2022 & 2023 논자시 기출  |                                                   |
-
-
-
-## :heavy_check_mark: Daily Progress
-
-|    날짜     |          성우           |           성문          |
-| :--------: | :--------------------: | :--------------------: |
-| 2023-08-08 |   :white_check_mark:   |   :white_check_mark:   |
-| 2023-08-09 |   :white_check_mark:   |   :white_check_mark:   |
-| 2023-08-10 |   :white_check_mark:   |   :white_check_mark:   |
-| 2023-08-11 |   :white_check_mark:   |   :white_check_mark:   |
-| 2023-08-12 |   :white_check_mark:   |   :white_check_mark:   |
-| 2023-08-13 |   :white_check_mark:   |   :white_check_mark:   |
-| 2023-08-14 |                        |                        |
-
-## :keyboard: Github 주요 용어 & 커맨드
+|    날짜    |          Tasks           |          성우           |           성문          |
+| :--------: | :----------------------: | :--------------------: | :--------------------: |
+| 2023-08-08 |        HW3 - HW6 <br> `Python` 기초 ~ File I/O in `Python`        |   :white_check_mark:   |   :white_check_mark:   |
+| 2023-08-09 |        HW7, HW14, HW17, HW19 <br> `Python` 응용, `C` 기초 및 string 처리         |   :white_check_mark:   |   :white_check_mark:   |
+| 2023-08-10 |        HW8, HW9 <br> Sorting, Stack, Queue, and Linked List (`Python`)        |   :white_check_mark:   |   :white_check_mark:   |
+| 2023-08-11 |       HW10, HW11 <br> BFS & DFS (`Python`)        |   :white_check_mark:   |   :white_check_mark:   |
+| 2023-08-12 |       HW12, HW18 <br> Hashing (`Python`) & 수학 알고리즘 (`C`)       |   :white_check_mark:   |   :white_check_mark:   |
+| 2023-08-13 |       HW20, HW21 <br> File I/O in `C` & `C` 응용       |   :white_check_mark:   |   :white_check_mark:   |
+| 2023-08-14 |       2022 & 2023 논자시 기출 |                        |                        |
 
 ### 주요 용어
 
