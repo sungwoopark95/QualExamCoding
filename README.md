@@ -25,19 +25,24 @@
 | Week5<br /> 2023-09-04 - 2023-09-10 |                                                              |                                                              |
 | Week5<br /> 2023-09-11 - 2023-09-17 |         :exclamation: **최 종 정 리** :exclamation:          |                                                              |
 
-
-
 ## :spiral_notepad: Progress Updates (to be updated)
 
-|    날짜    |          Tasks           |          성우           |           성문          |
-| :--------: | :----------------------: | :--------------------: | :--------------------: |
-| 2023-08-08 |        HW3 - HW6 <br> `Python` 기초 ~ File I/O in `Python`        |   :white_check_mark:   |   :white_check_mark:   |
-| 2023-08-09 |        HW7, HW14, HW17, HW19 <br> `Python` 응용, `C` 기초 및 string 처리         |   :white_check_mark:   |   :white_check_mark:   |
-| 2023-08-10 |        HW8, HW9 <br> Sorting, Stack, Queue, and Linked List (`Python`)        |   :white_check_mark:   |   :white_check_mark:   |
-| 2023-08-11 |       HW10, HW11 <br> BFS & DFS (`Python`)        |   :white_check_mark:   |   :white_check_mark:   |
-| 2023-08-12 |       HW12, HW18 <br> Hashing (`Python`) & 수학 알고리즘 (`C`)       |   :white_check_mark:   |   :white_check_mark:   |
-| 2023-08-13 |       HW20, HW21 <br> File I/O in `C` & `C` 응용       |   :white_check_mark:   |   :white_check_mark:   |
-| 2023-08-14 |       2022 & 2023 논자시 기출 |                        |                        |
+|                              Tasks                              |          성우           |           성문          |
+|:--------------------------------------------------------------: | :--------------------: | :--------------------: |
+|       HW3 - HW6 <br> `Python` 기초 ~ File I/O in `Python`        |   :white_check_mark:   |   :white_check_mark:   |
+|  HW7, HW14, HW17, HW19 <br> `Python` 응용, `C` 기초 및 string 처리  |   :white_check_mark:   |   :white_check_mark:   |
+| HW8, HW9 <br> Sorting, Stack, Queue, and Linked List (`Python`) |   :white_check_mark:   |   :white_check_mark:   |
+|               HW10, HW11 <br> BFS & DFS (`Python`)              |   :white_check_mark:   |   :white_check_mark:   |
+|      HW12, HW18 <br> Hashing (`Python`) & 수학 알고리즘 (`C`)      |   :white_check_mark:   |   :white_check_mark:   |
+|            HW20, HW21 <br> File I/O in `C` & `C` 응용            |   :white_check_mark:   |   :white_check_mark:   |
+|    HW1, HW2 SPDS(2021년도) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |                        | HW :white_check_mark: <br /> (HW2 C++ <br /> 실패) |
+|    HW3, HW4 SPDS(2021년도) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |                        |                         |
+|    HW5, HW6 SPDS(2021년도) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |                        |                         |
+|    HW1, HW2 (2022년 1학기) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |                        |                         |
+|    HW3, HW4 (2022년 1학기) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |                        |  HW3 :white_check_mark: |
+|    HW5 (1학기), HW1 (2학기) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |                        |  HW1 :white_check_mark: |
+|          HW2 (2학기) C/C++ <br /> 알고리즘 1개 각 언어로 구현          |                        |  HW :white_check_mark:  |
+|                      2022 & 2023 논자시 기출                      |                        |                         |
 
 ### 주요 용어
 
