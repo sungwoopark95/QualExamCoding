@@ -1,0 +1,1 @@
+UPDATE_MINI_BATCH  문제 식을 잘못 보고 해서 hw_score 폴더에 있는 점수 밑의 답지 확인해주세요
