@@ -35,8 +35,8 @@
 |               HW10, HW11 <br> BFS & DFS (`Python`)              |   :white_check_mark:   |   :white_check_mark:   |
 |      HW12, HW18 <br> Hashing (`Python`) & 수학 알고리즘 (`C`)      |   :white_check_mark:   |   :white_check_mark:   |
 |            HW20, HW21 <br> File I/O in `C` & `C` 응용            |   :white_check_mark:   |   :white_check_mark:   |
-|    HW1, HW2 SPDS(2021년도) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |                        | HW :white_check_mark: <br /> (HW2 C++ <br /> 실패) |
-|    HW3, HW4 SPDS(2021년도) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |                        | HW :white_check_mark:  |
+|    HW1, HW2 SPDS(2021년도) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |   :white_check_mark:   | HW :white_check_mark: <br /> (HW2 C++ <br /> 실패) |
+|    HW3, HW4 SPDS(2021년도) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |   :white_check_mark:   | HW :white_check_mark:  |
 |    HW5, HW6 SPDS(2021년도) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |                        |                         |
 |    HW1, HW2 (2022년 1학기) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |                        | HW :white_check_mark:  |
 |    HW3, HW4 (2022년 1학기) C/C++ <br /> 알고리즘 1개 각 언어로 구현    |                        |  HW :white_check_mark: |
