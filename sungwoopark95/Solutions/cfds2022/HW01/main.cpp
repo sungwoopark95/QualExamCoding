@@ -5,7 +5,7 @@
 int main() {
   Shape* s1 = new Square(2, -4);
   Rectangle* s2 = new Rectangle(17, 3);
-  Triangle* s3 = new Isoceles(4, 4);
+  Triangle* s3 = new Isosceles(4, 4);
   Shape* s4 = new Line(-4, 10);
   Shape* s5 = new Triangle(8, -30);
   Point* s6 = new Point(0, 0);
