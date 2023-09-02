@@ -2,36 +2,47 @@
 
 #include <string>
 #include <vector>
+using namespace std;
 
 class Vertex {
 public:
-  Vertex(std::string name) {
-    name_ = name;
-  }
+    Vertex(string name) {
+        name_ = name;
+    }
 
-  std::string GetName() { return name_; }
-  std::vector<Vertex*> GetAdjacencyList() { return adjacency_list_; }
+    string GetName() { 
+        return name_; 
+    }
+    
+    vector<Vertex*> GetAdjacencyList() {
+        return adjacency_list_; 
+    }
 
-  void AddToAdjacentList(Vertex* vertex);
+    void AddToAdjacentList(Vertex* vertex);
 
 private:
-  std::string name_;
-  std::vector<Vertex*> adjacency_list_;
+    string name_;
+    vector<Vertex*> adjacency_list_;
 };
 
 class Graph {
 public:
-  Graph() {}
-  ~Graph();
+    Graph() {}
+    ~Graph();
 
-  Vertex* GenVertex(std::string name);
-  void GenEdge(Vertex* start, Vertex* end);
+    Vertex* GenVertex(string name);
+    void GenEdge(Vertex* start, Vertex* end);
 
-  std::vector<Vertex*> GetVertices() { return vertices_; }
-  size_t GetNumVertices() { return vertices_.size(); }
+    vector<Vertex*> GetVertices() { 
+        return vertices_; 
+    }
+    
+    size_t GetNumVertices() { 
+        return vertices_.size(); 
+    }
 
-  void PrintGraph();
+    void PrintGraph();
 
 private:
-  std::vector<Vertex*> vertices_;
+    vector<Vertex*> vertices_;
 };
