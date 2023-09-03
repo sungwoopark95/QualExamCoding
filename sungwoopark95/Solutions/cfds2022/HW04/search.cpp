@@ -146,18 +146,19 @@ void DFS_prob2_recursion_map(Vertex* vertex, unsigned int &timestamp, map<Vertex
 }
 
 void DFS_prob2_stack(Vertex* start, unsigned int &timestamp, map<Vertex*, unsigned int> &discovery_time, 
-                map<Vertex*, unsigned int> &finishing_time, map<Vertex*, bool> &visited) {
+                map<Vertex*, unsigned int> &finishing_time) {
+    map<Vertex*, bool> visited;
     stack<Vertex*> S;
     S.push(start);
 
     while (!S.empty()) {
         Vertex* curr_node = S.top();
         
-        if (!visited[curr_node]) {
+        if (discovery_time.find(curr_node) == discovery_time.end()) {
             visited[curr_node] = true;
             timestamp++;
             discovery_time[curr_node] = timestamp;
-
+            
             vector<Vertex*> adj_list = curr_node->GetAdjacencyList();
             for (auto it = adj_list.rbegin(); it != adj_list.rend(); ++it) { // 역순으로 반복
                 /*

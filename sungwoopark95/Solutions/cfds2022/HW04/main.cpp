@@ -142,7 +142,7 @@ void ShowcaseDFS() {
         // // Vertex* start = vertex_u;
         // for (auto vertex : graph.GetVertices()) {
         //     if (!visited[vertex]) {
-        //         DFS_prob2_stack(vertex, timestamp, discovery_time, finishing_time, visited);
+        //         DFS_prob2_stack(vertex, timestamp, discovery_time, finishing_time);
         //     }
         // }
 
