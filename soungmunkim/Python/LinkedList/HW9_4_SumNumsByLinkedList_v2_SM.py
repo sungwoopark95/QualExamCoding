@@ -39,6 +39,7 @@ def P2_ans(lst1, lst2):
             prev = cur
             cur = next
         return prev
+    
     # 더할 때 1의자리 부터 더하기 때문에 linked list를 먼저 뒤집고 시작 필요
     num1, num2 = reverseLinkedlist(lst1), reverseLinkedlist(lst2)
     carry = 0 # 올림 수
@@ -51,9 +52,11 @@ def P2_ans(lst1, lst2):
                 # carry에 값 계속 더해준 후 10으로 나눠서 carry값 다시 업뎃하는 방식
                 carry += num1.val
                 num1 = num1.next # 다음 숫자로 update
+                
             if num2:
                 carry += num2.val
                 num2 = num2.next 
+                
             # carry를 10으로 나눴을 때 몫 = carry, 나머지 = x로 저장
             carry, x = divmod(carry, 10)
             cur.next = ListNode(x) # 더미 다음에 결과 값 붙이기

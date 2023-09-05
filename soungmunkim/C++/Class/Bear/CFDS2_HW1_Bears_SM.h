@@ -22,6 +22,7 @@ or (in the case of mommabear)
      Aggressiveness={aggressiveness}, Total Aggressiveness={totalaggressiveness}
 */
 #pragma once
+#include <iostream>
 
 /*--------- Super Class ----------*/
 class Bear {

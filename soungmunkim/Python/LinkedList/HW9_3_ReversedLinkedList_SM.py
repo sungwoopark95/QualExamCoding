@@ -49,6 +49,9 @@ def print_linked_list(n: ListNode, l: list):
 
 # Dummy node 넣어서 reverse 하는 방법
 def P3(head):
+    if not head:
+        return None
+    
     dummy = ListNode()
     
     while head:
@@ -59,3 +62,20 @@ def P3(head):
         dummy.next = cur
         
     return dummy.next
+
+
+# # Dummy node 넣어서 reverse 하는 방법
+# def P3(head):
+#     dummy = ListNode()
+#     prev = dummy  # New line to initialize prev
+    
+#     while head:
+#         curr = head
+#         head = head.next
+        
+#         curr.next = prev.next
+#         prev.next = curr
+        
+#         prev = curr  # New line to update prev
+        
+#     return dummy.next

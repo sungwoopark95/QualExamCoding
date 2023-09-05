@@ -1,9 +1,9 @@
 from CreateBST import TreeNode, create_linked_bst
 
-def P3(root: TreeNode, val: int) -> TreeNode:    
+def P3(root: TreeNode, val: int):    
     ##### Write your Code Here #####
 
-    def __balancedBST(nodes: list, start: int, end: int) -> TreeNode:
+    def __balancedBST(nodes: list, start: int, end: int):
         """
         1. 중앙 노드 선택: 주어진 정렬된 노드 리스트에서 중앙에 위치한 노드를 선택합니다. 이 노드가 현재 서브트리의 루트 노드가 됩니다. 
            중앙 노드는 (start + end) // 2로 계산됩니다.
