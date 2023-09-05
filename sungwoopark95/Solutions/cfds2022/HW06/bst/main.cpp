@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-	BST bst;
+    BST bst;
     bst.Insert(8);
     bst.Insert(18);
     bst.Insert(5);
@@ -18,7 +18,7 @@ int main() {
     cout << "========== Initial BST ==========" << endl;
     bst.Print();
 
-  // find and delete the node whose key is 25
+    // find and delete the node whose key is 25
     BST::Node* target = bst.Search(bst.GetRoot(), 25);
     if (target != NULL)
         bst.Delete(target);
