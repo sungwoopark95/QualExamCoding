@@ -1,14 +1,23 @@
+# Byte-compiled / optimized / DLL files
+
+__pycache__/
+*.pyc
+
+/DS_Store
 .DS_Store
+
 .vscode
-*/.ipynb_checkpoints
+.ipynb_checkpoints/
 *.pdf
 *.jpg
 *.o
 Makefile
 
-*/.github/
+.github/
 LICENSE
 *.yml
 stb_image_resize.h
 stb_image.h
-*.md
+
+stb/
+eigen3/

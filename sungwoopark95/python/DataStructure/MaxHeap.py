@@ -3,12 +3,12 @@ from typing import List
 class MaxHeap:
     def __init__(self) -> None:
         self.heap = []
-        
+
+    def __contains__(self, item):
+        return item in self.heap
+
     def getSize(self) -> int:
         return len(self.heap)
-    
-    def getHeap(self) -> List:
-        return self.heap
     
     def isEmpty(self) -> bool:
         return self.getSize() == 0
@@ -45,7 +45,8 @@ class MaxHeap:
         value = self.heap.pop(0)
         self.build_heap()
         return value
-    
+
+
 if __name__ == "__main__":
     h = MaxHeap()
     

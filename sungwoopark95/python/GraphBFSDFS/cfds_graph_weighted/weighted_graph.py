@@ -13,7 +13,6 @@ class Vertex:
         self.name = name
         self.key = 0
         self.parent = None
-        self.distance = 0
         self.adjacency_list = []
     
     def GetAdjacencyList(self) -> List[WeightedEdge]:

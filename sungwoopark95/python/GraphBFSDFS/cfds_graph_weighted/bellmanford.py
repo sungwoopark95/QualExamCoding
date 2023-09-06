@@ -3,14 +3,14 @@ from typing import List, Dict, Tuple
 
 def initialize_single_source(G:Graph, start:Vertex) -> None:
     for vertex in G.GetVertices():
-        vertex.distance = float('inf')
+        vertex.key = float('inf')
         vertex.parent = None
-    start.distance = 0
+    start.key = 0
 
 
 def relax(u:Vertex, v:Vertex, w:int) -> None:
-    if v.distance > u.distance + w:
-        v.distance = u.distance + w
+    if v.key > u.key + w:
+        v.key = u.key + w
         v.parent = u
 
 
@@ -36,7 +36,7 @@ def bellman_ford_check_cycle(G:Graph, start:Vertex) -> bool:
     # check negative cycle
     for edge in G.GetEdge():
         u, v, w = edge
-        if v.distance > u.distance + w:
+        if v.key > u.key + w:
             return False
     return True
 
