@@ -146,21 +146,19 @@ void max_palindromes(Node* s) {
 }
 
 int main() {
-    int n;
-    printf("Enter the number of elements: "); 
-    scanf("%d", &n);
+    char input[1000];  // 사용자 입력을 받기 위한 문자열
+    int data;
 
-    if (n <= 0) {
-        printf("Invalid input.\n");
-        return 1;
-    }
+    printf("Enter the elements in list format (e.g., 1 2 3 4 5): ");
+    fgets(input, sizeof(input), stdin);  // 한 줄로 입력받기
 
-    printf("Enter the elements: ");
     Node* head = NULL;
     Node* temp = NULL;
-    for (int i = 0; i < n; i++) {
-        int data;
-        scanf("%d", &data);
+
+    char* token = strtok(input, " ");  // 공백을 기준으로 문자열 분리
+    while (token) {
+        sscanf(token, "%d", &data);  // 분리된 문자열에서 숫자 읽기
+
         if (head == NULL) {
             head = newNode(data);
             temp = head;
@@ -168,6 +166,8 @@ int main() {
             temp->next = newNode(data);
             temp = temp->next;
         }
+
+        token = strtok(NULL, " ");  // 다음 토큰 가져오기
     }
 
     print_list(head);

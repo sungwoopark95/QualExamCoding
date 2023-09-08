@@ -1,4 +1,4 @@
-from CreateBST import TreeNode, create_linked_bst
+from ListToBST import TreeNode, create_linked_bst
 from typing import List
 
 def P2(root:TreeNode) -> List[List[int]]:

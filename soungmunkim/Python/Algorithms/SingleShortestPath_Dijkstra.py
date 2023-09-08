@@ -37,6 +37,17 @@ def RELAX(u, v, weights):
             v.d = u.d + weights[(u, v)]
             v.pi = u
 
+def printPath(s, v):
+    """s에서 v까지의 경로를 출력하는 함수"""
+    path = []
+    while v:
+        path.append(v)
+        v = v.pi
+    path.reverse()
+    
+    path_str = " -> ".join(str(vertex) for vertex in path)
+    return path_str
+
 def DIJKSTRA(G, weights, s):
     """
     그래프 G에서 주어진 시작 정점 s로부터의 최단 경로를 계산합니다.
@@ -66,6 +77,7 @@ def DIJKSTRA(G, weights, s):
                         break
                 heapq.heapify(Q)  # 힙 속성을 유지하기 위해 다시 heapify 합니다.
 
+
 if __name__ == "__main__":
     # 그래프 초기화
     v1 = Vertex("v1")
@@ -87,4 +99,7 @@ if __name__ == "__main__":
 
     # 결과 출력
     for vertex in G.V:
+        path = printPath(v1, vertex)
         print(f"Distance from {v1} to {vertex}: {vertex.d}")
+        print(f"Path: {path}")
+        print("-" * 40)

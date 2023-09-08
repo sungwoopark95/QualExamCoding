@@ -1,13 +1,13 @@
 #include<stdio.h> 
 #include<stdlib.h> 
 
-typedef struct node
+typedef struct node // 노드 구조체 정의
 {
     int key;
     struct node *left, *right;
 } Node;
 
-Node* newNode(int item)
+Node* newNode(int item) // 새 노드 생성 함수
 {
     Node *temp = (Node *)malloc(sizeof(struct node));
     temp->key = item;
@@ -15,7 +15,7 @@ Node* newNode(int item)
     return temp;
 }
 
-void inorder(Node* root)
+void inorder(Node* root) // 중위 순회 함수
 {
     if (root != NULL)
     {
@@ -25,10 +25,10 @@ void inorder(Node* root)
     }
 }
 
-Node* insert(Node* node, int key)
+Node* insert(Node* node, int key) // 이진 검색 트리에 삽입 함수
 {
     if (node == NULL) {
-        return newNode(key) ;
+        return newNode(key);
     }
 
     if (key < node->key) {
@@ -41,7 +41,7 @@ Node* insert(Node* node, int key)
     return node;
 }
 
-Node* minValueNode(Node* node)
+Node* minValueNode(Node* node) // 주어진 트리의 최소값 노드 찾기 함수
 {
     struct node* current = node;
 
@@ -52,7 +52,7 @@ Node* minValueNode(Node* node)
     return current;
 }
 
-Node* deleteNode(Node* root, int key)
+Node* deleteNode(Node* root, int key) // 이진 검색 트리에서 키 값 삭제 함수
 {
     if (root == NULL)
     {

@@ -8,10 +8,20 @@ class TreeNode:
         self.left = left
         self.right = right
 
+
 # TreeNode로 반환
 def list_to_bst(nums: list):
-    # 먼저 list 순서대로 정렬하기
-    nums = sorted(nums)
+    # None이 아닌 값을 필터링하여 새로운 리스트를 생성합니다.
+    filtered_nums = []
+    for x in nums:
+        if x is not None:
+            filtered_nums.append(x)
+
+    # 필터링된 리스트를 정렬합니다.
+    sorted_nums = sorted(filtered_nums)
+
+    # 정렬된 리스트를 다시 nums 변수에 할당합니다.
+    nums = sorted_nums
     
     # Base case
     if not nums:

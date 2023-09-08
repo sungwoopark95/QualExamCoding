@@ -39,10 +39,22 @@ def Initialize_Single_Source(graph, source):
     return distance
 
 # relax 함수: 시작 노드에서의 거리와 가중치를 고려하여 목적지 노드의 거리를 업데이트
-def relax(distance, u, v, weight):
+# relax 함수 수정: 거리와 함께 predecessor 업데이트
+def relax(distance, predecessor, u, v, weight):
     if distance[u] != INF and distance[u] + weight < distance[v]:
         distance[v] = distance[u] + weight
-
+        predecessor[v] = u  # 전임자 업데이트
+        
+# 주어진 정점에서 시작 정점까지의 경로를 출력하는 함수
+def printPath(predecessor, source, vertex):
+    if vertex == source:
+        print(source, end=" ")
+    elif predecessor[vertex] == -1:
+        print(f"No path from {source} to {vertex}.")
+    else:
+        printPath(predecessor, source, predecessor[vertex])
+        print(vertex, end=" ")
+        
 # 위상 정렬을 위한 DFS 유틸리티 함수
 def topologicalSortUtil(graph, v, visited, stack):
     visited[v] = True
@@ -55,6 +67,7 @@ def topologicalSortUtil(graph, v, visited, stack):
 def DAG_shortest_path(graph, source):
     visited = [False] * graph.V
     stack = []
+    predecessor = [-1] * graph.V  # 각 정점의 전임자를 저장하는 배열 추가
 
     # 모든 노드에 대해 DFS 수행
     for i in range(graph.V):
@@ -66,9 +79,9 @@ def DAG_shortest_path(graph, source):
     while stack:
         u = stack.pop()
         for node in graph.adj[u]:
-            relax(distance, u, node.to, node.weight)
+            relax(distance, predecessor, u, node.to, node.weight)  # predecessor 인자 추가
 
-    return distance
+    return distance, predecessor
 
 if __name__ == "__main__":
     V = 3  # 예시 그래프의 정점의 개수
@@ -81,9 +94,14 @@ if __name__ == "__main__":
     source = 0  # 시작 정점
     distances = DAG_shortest_path(graph, source)
 
-    # 최단 거리 결과 출력
+    distances, predecessors = DAG_shortest_path(graph, source)
+
+    # 최단 거리 및 경로 결과 출력
     for i, d in enumerate(distances):
         if d != INF:
             print(f"Distance from {source} to {i} is: {d}")
+            print("Path:", end=" ")
+            printPath(predecessors, source, i)
+            print()
         else:
             print(f"Distance from {source} to {i} is: INF")

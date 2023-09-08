@@ -2,8 +2,11 @@
 숫자 리스트를 Binary search tree로 변환하는 코드
 */
 
+
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
+#include <string.h>
 
 // TreeNode 구조체를 정의합니다.
 typedef struct TreeNode {
@@ -28,6 +31,9 @@ void bubbleSort(int* nums, int size) {
 
 // 정렬된 배열을 균형 잡힌 이진 검색 트리로 변환하는 함수
 TreeNode* sorted_list_to_bst(int* nums, int start, int end) {
+    int size = end - start + 1;
+    bubbleSort(nums, size);
+
     // 시작 지점이 끝나는 지점보다 크면 NULL 반환 (재귀의 종료 조건)
     if (start > end) return NULL;
 

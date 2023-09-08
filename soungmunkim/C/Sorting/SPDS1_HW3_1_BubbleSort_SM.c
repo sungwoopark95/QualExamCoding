@@ -27,6 +27,39 @@ void bubble_sort(int arr[], int n){
     }
 }
 
+// /*------------- str array sorting하기 ------------*/
+// // 오른차순 정렬
+// void bubbleSort(char** arr, int n) {
+//     for (int i = 0; i < n-1; i++) {
+//         for (int j = 0; j < n-i-1; j++) {
+//             // strcmp는 두 문자열을 비교하며, 첫 번째 문자열이 두 번째 문자열보다 사전적으로 크면 양의 값을 반환합니다.
+//             if (strcmp(arr[j], arr[j+1]) > 0) {
+//                 // 두 문자열 포인터 교환
+//                 char* temp = arr[j];
+//                 arr[j] = arr[j+1];
+//                 arr[j+1] = temp;
+//             }
+//         }
+//     }
+// }
+
+// // 오른차순 정렬
+// void bubbleSort(char arr[][100], int n) {
+//     for (int i = 0; i < n-1; i++) {
+//         for (int j = 0; j < n-i-1; j++) {
+//             // strcmp는 두 문자열을 비교하며, 첫 번째 문자열이 두 번째 문자열보다 사전적으로 크면 양의 값을 반환합니다.
+//             if (strcmp(arr[j], arr[j+1]) > 0) {
+//                 // 두 문자열 직접 교환
+//                 char temp[100]; // 임시 문자열 변수
+//                 strcpy(temp, arr[j]);       // temp에 arr[j] 복사
+//                 strcpy(arr[j], arr[j+1]);   // arr[j]에 arr[j+1] 복사
+//                 strcpy(arr[j+1], temp);     // arr[j+1]에 temp 복사
+//             }
+//         }
+//     }
+// }
+
+
 // // 내림차순 정렬
 // void bubble_sort(int* arr, int length) {
 //     for (int i=0;i<length;i++) {

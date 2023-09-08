@@ -1,4 +1,4 @@
-from CreateBST import TreeNode, create_linked_bst
+from ListToBST import TreeNode, create_linked_bst
 
 def P3(root: TreeNode, val: int):    
     ##### Write your Code Here #####

@@ -52,6 +52,18 @@ int compare(const void* a, const void* b) {
     return 0;
 }
 
+// 경로를 출력하는 함수
+void printPath(Vertex* s, Vertex* v) {
+    if (v == s) {
+        printf("v%d ", s->id + 1);
+    } else if (v->pi == NULL) {
+        printf("no path from v%d to v%d exists", s->id + 1, v->id + 1);
+    } else {
+        printPath(s, v->pi);
+        printf("-> v%d ", v->id + 1);
+    }
+}
+
 // Dijkstra 알고리즘 구현 함수
 void DIJKSTRA(Graph* G, int weights[][2], Vertex* s) {
     // 모든 정점의 거리와 부모를 초기화
@@ -81,6 +93,7 @@ void DIJKSTRA(Graph* G, int weights[][2], Vertex* s) {
     free(Q);
     free(S);
 }
+
 
 int main() {
     // 그래프 초기화 부분
@@ -113,7 +126,8 @@ int main() {
     // 결과 출력
     for (int i = 0; i < G.numVertices; i++) {
         printf("Distance from v1 to v%d: %f\n", G.V[i]->id + 1, G.V[i]->d);
+        printf("Path: ");
+        printPath(&v1, G.V[i]);
+        printf("\n");
     }
-
-    return 0;
 }

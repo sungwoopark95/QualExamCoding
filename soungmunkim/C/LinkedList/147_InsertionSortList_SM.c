@@ -39,27 +39,8 @@ void print_linked_list(ListNode* head) {
     printf("]\n");
 }
 
-// Helper: 배열을 연결 리스트로 변환
-ListNode* arrayToLinkedList(int* arr, int size) {
-    if(size == 0) return NULL;
-
-    ListNode* head = malloc(sizeof(ListNode));
-    head->val = arr[0];
-    head->next = NULL;
-    ListNode* current = head;
-
-    for(int i = 1; i < size; i++) {
-        current->next = malloc(sizeof(ListNode));
-        current->next->val = arr[i];
-        current->next->next = NULL;
-        current = current->next;
-    }
-
-    return head;
-}
-
-// 연결 리스트 정렬
-ListNode* insertion_sort_list(int* arr, int size) {
+// 배열을 정렬하고 연결 리스트로 변환하여 반환
+ListNode* sortArrayAndConvertToList(int* arr, int size) {
     for(int i = 1; i < size; i++) {
         for(int j = i; j > 0; j--) {
             if(arr[j-1] > arr[j]) {
@@ -72,8 +53,18 @@ ListNode* insertion_sort_list(int* arr, int size) {
         }
     }
 
-    return arrayToLinkedList(arr, size);
+    return create_linked_list(arr, size);  // 정렬된 배열로부터 연결 리스트 생성
 }
+
+// 연결 리스트 메모리 해제
+void free_linked_list(ListNode* head) {
+    while(head != NULL) {
+        ListNode* temp = head;
+        head = head->next;
+        free(temp);
+    }
+}
+
 
 int main() {
     char input[100];
@@ -90,8 +81,10 @@ int main() {
         token = strtok(NULL, "[], ");
     }
 
-    ListNode* sorted = insertion_sort_list(arr, size);
-    print_linked_list(sorted);
+    ListNode* sorted = sortArrayAndConvertToList(arr, size);  // 배열 정렬 및 연결 리스트 변환
+    print_linked_list(sorted);  // 연결 리스트 출력
+
+    free_linked_list(sorted);  // 연결 리스트 메모리 해
 
     return 0;
 }

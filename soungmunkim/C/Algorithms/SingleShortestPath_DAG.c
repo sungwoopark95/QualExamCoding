@@ -73,13 +73,26 @@ void Initialize_Single_Source(Graph* graph, int source) {
     distance[source] = 0; // 시작 정점의 거리는 0
 }
 
-// relax 함수: 거리 배열을 업데이트
+int predecessor[MAX_V];  // 각 정점의 전임자를 저장하는 배열
+
+// relax 함수 수정: 거리와 함께 전임자 업데이트
 void relax(int u, int v, int weight) {
     if (distance[u] != INF && distance[u] + weight < distance[v]) {
-        distance[v] = distance[u] + weight; // 거리 갱신
+        distance[v] = distance[u] + weight;
+        predecessor[v] = u;  // 전임자 업데이트
     }
 }
-
+// 주어진 정점에서 시작 정점까지의 경로를 출력하는 함수
+void printPath(int source, int vertex) {
+    if (vertex == source) {
+        printf("%d ", source);
+    } else if (predecessor[vertex] == -1) {
+        printf("No path from %d to %d.\n", source, vertex);
+    } else {
+        printPath(source, predecessor[vertex]);
+        printf("%d ", vertex);
+    }
+}
 // DAG에서의 최단 경로를 계산하는 함수
 void DAG_shortest_path(Graph* graph, int source) {
     bool visited[MAX_V] = {0};
@@ -118,10 +131,17 @@ int main() {
 
     DAG_shortest_path(graph, source);
 
+     // predecessor 배열 초기화
+    for (int i = 0; i < V; i++) {
+        predecessor[i] = -1;
+    }
 
     for (int i = 0; i < V; i++) {
         if (distance[i] != INF) {
             printf("Distance from %d to %d is: %d\n", source, i, distance[i]);
+            printf("Path: ");
+            printPath(source, i);
+            printf("\n");
         } else {
             printf("Distance from %d to %d is: INF\n", source, i);
         }

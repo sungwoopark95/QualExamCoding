@@ -1,4 +1,4 @@
-from CreateBST import TreeNode, create_linked_bst
+from ListToBST import TreeNode, create_linked_bst
 
 # 값 자체를 계속해서 더하기
 def P1(root:TreeNode, low:int, high:int) -> int:

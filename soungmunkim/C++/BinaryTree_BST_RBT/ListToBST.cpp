@@ -4,6 +4,10 @@
 
 #include <vector>
 #include <iostream>
+#include <sstream>
+#include <string>
+
+using namespace std;
 
 class TreeNode {
 public:
@@ -18,12 +22,13 @@ public:
 class BinarySearchTree {
 public:
     // 정렬된 리스트를 이진 검색 트리로 변환하는 함수
-    TreeNode* sortedListToBST(const std::vector<int>& nums) {
+    TreeNode* sortedListToBST(vector<int>& nums) {
+        sortList(nums);
         return sortedListToBSTHelper(nums, 0, nums.size() - 1);
     }
     /*---------------Sorted list 만들기 (bubble sort 사용) --------------------*/
     // 리스트를 정렬하는 함수 (선택 정렬 사용)
-    void sortList(std::vector<int>& nums) {
+    void sortList(vector<int>& nums) {
         for (size_t i = 0; i < nums.size() - 1; i++) {
             size_t min_idx = i;
             // 현재 위치부터 가장 작은 원소를 찾는 과정
@@ -34,7 +39,7 @@ public:
             }
             // 가장 작은 원소와 현재 원소를 교환
             if (min_idx != i) {
-                std::swap(nums[i], nums[min_idx]);
+                swap(nums[i], nums[min_idx]);
             }
         }
     }
@@ -42,14 +47,14 @@ public:
     // 이진 트리를 전위 순회하며 출력하는 함수
     void printTree(TreeNode* root) {
         if (root == nullptr) return;
-        std::cout << root->val << " ";   // 현재 노드 출력
+        cout << root->val << " ";   // 현재 노드 출력
         printTree(root->left);           // 왼쪽 서브트리 출력
         printTree(root->right);          // 오른쪽 서브트리 출력
     }
 
 private:
     // sortedListToBST 함수를 위한 재귀적 도우미 함수
-    TreeNode* sortedListToBSTHelper(const std::vector<int>& nums, int start, int end) {
+    TreeNode* sortedListToBSTHelper(const vector<int>& nums, int start, int end) {
         // 시작 위치가 끝 위치보다 큰 경우 null 반환
         if (start > end) return nullptr;
 
