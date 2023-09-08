@@ -1,6 +1,5 @@
 from __future__ import annotations
 from typing import List
-# from prim import MinHeap
 
 class WeightedEdge:
     def __init__(self, end:Vertex, weight:int) -> None:

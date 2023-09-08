@@ -1,5 +1,71 @@
-from weighted_graph import Vertex, WeightedEdge, Graph
+from __future__ import annotations
 from typing import List
+
+class WeightedEdge:
+    def __init__(self, end:Vertex, weight:int) -> None:
+        self.end = end
+        self.weight = weight
+
+
+class Vertex:
+    def __init__(self, name:str) -> None:
+        self.name = name
+        self.key = 0
+        self.parent = None
+        self.adjacency_list = []
+    
+    def GetAdjacencyList(self) -> List[WeightedEdge]:
+        return self.adjacency_list
+    
+    def AddToAdjacentList(self, vertex:Vertex, weight:int) -> None:
+        edge = WeightedEdge(end=vertex, weight=weight)
+        self.adjacency_list.append(edge)
+        
+        
+class Graph:
+    def __init__(self) -> None:
+        self.vertices = []
+    
+    def GenVertex(self, name) -> Vertex:
+        v = Vertex(name)
+        self.vertices.append(v)
+        return v
+    
+    def GenEdge(self, start:Vertex, end:Vertex, weight:int) -> None:
+        start.AddToAdjacentList(vertex=end, weight=weight)
+        
+    def GetEdge(self) -> List[WeightedEdge]:
+        edges = []
+        for v in self.vertices:
+            for adj in v.GetAdjacencyList():
+                edges.append((v, adj.end, adj.weight))
+        return edges
+    
+    def GetVertices(self) -> List[Vertex]:
+        return self.vertices
+    
+    def GetNumVertices(self) -> int:
+        return len(self.vertices)
+    
+    def PrintGraph(self) -> None:
+        print("============== Defined Graph ==============")
+        for vertex in self.vertices:
+            print(f"Vertex {vertex.name}, Adjacency List: ", end='')
+            is_first = True
+            for adj in vertex.GetAdjacencyList():
+                # adj : WeightedEdge object
+                if not is_first:
+                    print(", ", end='')
+                print(f"(Vertex {adj.end.name}, Weight {adj.weight})", end='')
+                is_first = False
+            print()
+    
+    def __del__(self) -> None:
+        ## unnecessary for python
+        for v in self.vertices:
+            del v
+        del self.vertices
+        
 
 def make_set(v:Vertex) -> Vertex:
     v.parent = v
@@ -53,6 +119,8 @@ def kruskal(G:Graph) -> List[str]:
     
     return ans
 
+# Example usage:
+
 if __name__ == "__main__":
     graph = Graph()
     
@@ -63,15 +131,23 @@ if __name__ == "__main__":
     vertex_4 = graph.GenVertex('4')
     vertex_5 = graph.GenVertex('5')
     
-    # generate edges
+    # generate edges for undirected graph by manually adding edges in both directions
     graph.GenEdge(vertex_1, vertex_2, 6)
+    graph.GenEdge(vertex_2, vertex_1, 6)
     graph.GenEdge(vertex_1, vertex_3, 1)
+    graph.GenEdge(vertex_3, vertex_1, 1)
     graph.GenEdge(vertex_1, vertex_4, 4)
+    graph.GenEdge(vertex_4, vertex_1, 4)
     graph.GenEdge(vertex_1, vertex_5, 6)
+    graph.GenEdge(vertex_5, vertex_1, 6)
     graph.GenEdge(vertex_3, vertex_5, 1)
+    graph.GenEdge(vertex_5, vertex_3, 1)
     graph.GenEdge(vertex_4, vertex_2, 2)
+    graph.GenEdge(vertex_2, vertex_4, 2)
     graph.GenEdge(vertex_4, vertex_5, 4)
+    graph.GenEdge(vertex_5, vertex_4, 4)
     graph.GenEdge(vertex_5, vertex_2, 3)
+    graph.GenEdge(vertex_2, vertex_5, 3)
 
     # print all vertices and their adjacency lists
     graph.PrintGraph()

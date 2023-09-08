@@ -1,38 +1,38 @@
 from typing import List
 
-class MaxHeap:
+class MinHeap:
     def __init__(self) -> None:
         self.heap = []
-
+    
     def __contains__(self, item):
         return item in self.heap
-
+        
     def getSize(self) -> int:
         return len(self.heap)
     
     def isEmpty(self) -> bool:
         return self.getSize() == 0
 
-    def __max_heapify(self, array:List, root:int, last:int) -> None:
-        largest = root
+    def __min_heapify(self, array:List, root:int, last:int) -> None:
+        smallest = root
         left_child = (2 * root) + 1
         right_child = (2 * root) + 2
 
-        # check if there is any child whose value is larger than the parent
-        if left_child < last and array[left_child] > array[largest]:
-            largest = left_child
-        if right_child < last and array[right_child] > array[largest]:
-            largest = right_child
+        # check if there is any child whose value is smaller than the parent
+        if left_child < last and array[left_child] < array[smallest]:
+            smallest = left_child
+        if right_child < last and array[right_child] < array[smallest]:
+            smallest = right_child
         
-        # if larger child exists, change
-        if largest != root:
-            array[root], array[largest] = array[largest], array[root]
+        # if smaller child exists, change
+        if smallest != root:
+            array[root], array[smallest] = array[smallest], array[root]
             # recursively modify the affected subtree
-            self.__max_heapify(array, largest, last)
+            self.__min_heapify(array, smallest, last)
 
     def build_heap(self) -> None:
         for i in range(self.getSize()//2-1, -1, -1):
-            self.__max_heapify(self.heap, i, self.getSize())
+            self.__min_heapify(self.heap, i, self.getSize())
     
     def push(self, val):
         self.heap.append(val)
@@ -46,9 +46,9 @@ class MaxHeap:
         self.build_heap()
         return value
 
-
+    
 if __name__ == "__main__":
-    h = MaxHeap()
+    h = MinHeap()
     
     h.push(10)
     h.push(2)
@@ -57,5 +57,8 @@ if __name__ == "__main__":
     h.push(20)
     h.push(3)
     
+    print(f"Is 3 in the heap? : {3 in h}")
+    print(f"Is 24 in the heap? : {24 in h}")
+    
     while not h.isEmpty():
-        print(f"Heap : {h.getHeap()}\tPopped : {h.pop()}")
+        print(f"Popped : {h.pop()}")
