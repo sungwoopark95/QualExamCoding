@@ -47,51 +47,60 @@ using namespace std;
 
 class FrontMiddleBackQueue {
 public:
+    // 기본 생성자
     FrontMiddleBackQueue() { }
 
+    // 큐를 저장하기 위한 벡터
     vector<int> q;
-    
+
+    // 큐의 앞쪽에 값을 푸시
     void pushFront(int val) {
         q.insert(q.begin(), val);
     }
-    
+
+    // 큐의 중간에 값을 푸시
     void pushMiddle(int val) {
         q.insert(q.begin() + getMiddleIndex(q.size()+1), val);
     }
-    
+
+    // 큐의 뒤쪽에 값을 푸시
     void pushBack(int val) {
         q.push_back(val);
     }
-    
+
+    // 큐의 앞쪽에서 값을 팝
     int popFront() {
         if (q.empty()) return -1;
-        
+
         int val = q.front();
         q.erase(q.begin());
-        
+
         return val;
     }
-    
+
+    // 큐의 중간에서 값을 팝
     int popMiddle() {
         if (q.empty()) return -1;
-        
+
         int middle = getMiddleIndex(q.size());
         int val = q[middle];
         q.erase(q.begin() + middle);
-        
+
         return val; 
     }
-    
+
+    // 큐의 뒤쪽에서 값을 팝
     int popBack() {
         if (q.empty()) return -1;
-        
+
         int val = q.back();
         q.pop_back();
-        
+
         return val;
     }
 
 private:
+    // 큐의 중간 인덱스를 반환하는 메서드
     int getMiddleIndex(int length) {
         if (length % 2 == 0) {
             return length / 2-1;

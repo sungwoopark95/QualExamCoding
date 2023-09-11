@@ -30,26 +30,26 @@ public:
     NodeType type;  // 현재 노드의 타입 (정수 or 리스트)
     union {
         int value;  // 정수 값을 저장할 변수
-        std::shared_ptr<ListNode> sublist;  // 리스트를 가리킬 포인터 (sublist)
+        shared_ptr<ListNode> sublist;  // 리스트를 가리킬 포인터 (sublist)
     };
-    std::shared_ptr<ListNode> next;  // next node를 가리키는 포인터
+    shared_ptr<ListNode> next;  // next node를 가리키는 포인터
 
     // int type node를 위한 생성자
     ListNode(int v) : type(NodeType::INTEGER), value(v), next(nullptr) {}
 
     // list type node를 위한 생성자
-    ListNode(std::shared_ptr<ListNode> sub) : type(NodeType::LIST), sublist(sub), next(nullptr) {}
+    ListNode(shared_ptr<ListNode> sub) : type(NodeType::LIST), sublist(sub), next(nullptr) {}
 
     // 문자열로부터 중첩 리스트를 파싱하는 함수
-    static std::shared_ptr<ListNode> parseNestedList(const char*& pStr);
+    static shared_ptr<ListNode> parseNestedList(const char*& pStr);
     
     // 중첩 리스트의 모든 값을 합산하는 함수
     int listAccumulator();
 };
 
 // 문자열로부터 중첩 리스트를 파싱하여 ListNode 형태로 반환하는 함수
-std::shared_ptr<ListNode> ListNode::parseNestedList(const char*& pStr) {
-    auto head = std::make_shared<ListNode>(0);  // 가상의 시작 노드
+shared_ptr<ListNode> ListNode::parseNestedList(const char*& pStr) {
+    auto head = make_shared<ListNode>(0);  // 가상의 시작 노드
     auto current = head;
 
     // ']' 문자를 만나거나 문자열의 끝을 만날 때까지 반복
@@ -57,7 +57,7 @@ std::shared_ptr<ListNode> ListNode::parseNestedList(const char*& pStr) {
         if (*pStr == '[') {  // '[' 문자를 만나면 새로운 리스트 시작
             pStr++;
             auto sublist = parseNestedList(pStr);
-            auto newNode = std::make_shared<ListNode>(sublist);
+            auto newNode = make_shared<ListNode>(sublist);
             current->next = newNode;
             current = newNode;
         } else if ('0' <= *pStr && *pStr <= '9') {  // 숫자를 만나면
@@ -67,7 +67,7 @@ std::shared_ptr<ListNode> ListNode::parseNestedList(const char*& pStr) {
                 value = value * 10 + (*pStr - '0');
                 pStr++;
             }
-            auto newNode = std::make_shared<ListNode>(value);
+            auto newNode = make_shared<ListNode>(value);
             current->next = newNode;
             current = newNode;
         } else {  // 그 외 문자는 무시
@@ -96,14 +96,14 @@ int ListNode::listAccumulator() {
 
 int main(int argc, char* argv[]) {
     if (argc != 2) {
-        std::cout << "사용법: " << argv[0] << " <중첩 리스트>" << std::endl;
+        cout << "사용법: " << argv[0] << " <중첩 리스트>" << endl;
         return 1;
     }
 
     const char* input = argv[1];
     auto head = ListNode::parseNestedList(input);  // 문자열로부터 중첩 리스트 파싱
     int sum = head->listAccumulator();  // 중첩 리스트의 모든 값을 합산
-    std::cout << sum << std::endl;  // 결과 출력
+    cout << sum << endl;  // 결과 출력
 
     return 0;
 }

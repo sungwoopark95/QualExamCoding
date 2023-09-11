@@ -1,61 +1,68 @@
+
 /*
- * array를 이용하여 Circular Deque 구현
+ * 배열을 이용하여 원형 덱(Circular Deque) 구현
  */
 #include <iostream>
 using namespace std;
 
-#define MAX_DEQUE_SIZE 10
+#define MAX_DEQUE_SIZE 10  // 덱의 최대 크기 설정
 
 class Deque {
 private:
-    int front;  // 첫번째 요소 앞의 index
-    int rear;   // 마지막 요소 index
-    int data[MAX_DEQUE_SIZE];
+    int front;  // 첫 번째 요소 앞의 인덱스
+    int rear;   // 마지막 요소 인덱스
+    int data[MAX_DEQUE_SIZE];  // 데이터 저장을 위한 배열
 
 public:
+    // 생성자: front와 rear를 초기화한다.
     Deque(){
         front = 0;
         rear = 0;
     }
-    ~Deque(){}
+    ~Deque(){}  // 소멸자
 
+    // 덱의 앞에 항목을 추가
     void addFront(int n){
         if(isFull()){
             cout << "Deque Full Error" << endl;
             exit(1);
         }
         data[front] = n;
-        front = (front-1+MAX_DEQUE_SIZE)%MAX_DEQUE_SIZE;    // front가 0 이하로 떨어지는 경우 max index로 순회
+        front = (front-1+MAX_DEQUE_SIZE)%MAX_DEQUE_SIZE;  // front가 0 이하일 경우, max 인덱스로 순회
     }
 
-    void addRear(int n){    // push
+    // 덱의 뒤에 항목을 추가 (일반적인 push와 동일)
+    void addRear(int n){
         if(isFull()){
             cout << "Deque Full Error" << endl;
             exit(1);
         }
-        rear = (rear+1)%MAX_DEQUE_SIZE;   // rear가 max를 넘어가는 경우 다시 0번째 index로 순회
+        rear = (rear+1)%MAX_DEQUE_SIZE;  // rear가 최대값을 넘어가면 0번째 인덱스로 순회
         data[rear] = n;
     }
 
-    int deleteFront(){  // pop
+    // 덱의 앞 항목을 제거 (일반적인 pop과 동일)
+    int deleteFront(){
         if(isEmpty()){
             cout << "Deque Empty Error" << endl;
             exit(1);
         }
-        front = (front+1)%MAX_DEQUE_SIZE;   // front가 max를 넘어가는 경우 다시 0번째 index로 순회
+        front = (front+1)%MAX_DEQUE_SIZE;  // front가 최대값을 넘어가면 0번째 인덱스로 순회
         return data[front];
     }
 
+    // 덱의 뒷 항목을 제거
     int deleteRear(){
         if(isEmpty()){
             cout << "Deque Empty Error" << endl;
             exit(1);
         }
         int tmp = data[rear];
-        rear = (rear-1+MAX_DEQUE_SIZE)%MAX_DEQUE_SIZE;   // rear가 0 이하로 떨어지는 경우 max index로 순회
+        rear = (rear-1+MAX_DEQUE_SIZE)%MAX_DEQUE_SIZE;  // rear가 0 이하일 경우, max 인덱스로 순회
         return tmp;
     }
 
+    // 덱의 앞 항목 조회
     int getFront(){
         if(isEmpty()){
             cout << "Deque Empty Error" << endl;
@@ -64,6 +71,7 @@ public:
         return data[(front+1)%MAX_DEQUE_SIZE];
     }
 
+    // 덱의 뒷 항목 조회
     int getRear(){
         if(isEmpty()){
             cout << "Deque Empty Error" << endl;
@@ -72,10 +80,12 @@ public:
         return data[rear];
     }
 
+    // 덱의 크기 반환
     int size(){
         return front<=rear ? rear-front : (rear+MAX_DEQUE_SIZE)-front;
     }
 
+    // 덱의 내용 출력
     void display(){
         for(int i=front+1; i<=front+size(); i++){
             cout << "[" << data[i%MAX_DEQUE_SIZE] << "]";
@@ -83,7 +93,7 @@ public:
         cout << endl;
     }
 
-    // circular array의 front와 rear 정보를 보기위한 메소드
+    // 원형 배열의 front와 rear 정보를 출력하기 위한 메서드
     void displayDetail(){
         cout << "DEQUE :";
         for(int i=front+1; i<=front+size(); i++){
@@ -99,14 +109,18 @@ public:
         cout << endl;
     }
 
+    // 덱이 비어 있는지 확인
     bool isEmpty(){
         return front == rear;
     }
+
+    // 덱이 꽉 차 있는지 확인
     bool isFull() {
         return front == (rear+1)%MAX_DEQUE_SIZE;
     }
 };
 
+// 메인 함수
 int main() {
     Deque deque;
 

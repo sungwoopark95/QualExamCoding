@@ -2,25 +2,23 @@
 
 // 바이너리 탐색 함수
 int binary_search(int lst[], int n, int val) {
-    // bs: 내부 재귀 함수로 실제 바이너리 탐색을 수행합니다.
-    int bs(int lst[], int low, int high, int val) {
-        if (low > high) {
-            return -1;
-        }
+    int low = 0, high = n - 1;
+    
+    while (low <= high) {
+        int mid = (low + high) / 2;
         
-        int i = (low + high) / 2;
-        
-        if (lst[i] == val) {
-            return i;
-        } else if (lst[i] < val) {
-            return bs(lst, i+1, high, val);
+        if (lst[mid] == val) {
+            return mid;
+        } else if (lst[mid] < val) {
+            low = mid + 1;
         } else {
-            return bs(lst, low, i-1, val);
+            high = mid - 1;
         }
     }
 
-    return bs(lst, 0, n - 1, val);
+    return -1;  // 값을 찾을 수 없으면 -1 반환
 }
+
 
 int main() {
     int list1[] = {3, 7, 9, 33, 126, 167};

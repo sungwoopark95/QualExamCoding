@@ -1,5 +1,5 @@
 /*
-[Dijkstra algorithm 구현하기]
+[Dijkstra algorithm 구현하기] shortest path 프린트하기 
 
 negative weight cycle 없다는 가정
 */
@@ -100,7 +100,7 @@ int main() {
 
     DIJKSTRA(G, weights, &v1, Adj);  // Dijkstra 알고리즘 실행
 
-    // 결과 출력
+    // 결과 출력 (shortest path 프린트)
     for (Vertex* v : G) {
         cout << "Distance from v1 to v" << v->id << ": " << v->d << endl;  // 각 정점까지의 최단 거리 출력
     }

@@ -3,7 +3,7 @@
 
 using namespace std;
  
-// A structure to represent a queue
+// 큐를 표현하기 위한 구조체
 class Queue {
 public:
     int front, rear, size;
@@ -11,61 +11,59 @@ public:
     int* array;
 };
  
-// function to create a queue
-// of given capacity.
-// It initializes size of queue as 0
+// 주어진 용량으로 큐를 생성하는 함수.
+// 큐의 크기를 0으로 초기화한다.
 Queue* createQueue(unsigned capacity)
 {
     Queue* queue = new Queue();
     queue->capacity = capacity;
     queue->front = queue->size = 0;
  
-    // This is important, see the enqueue
+    // 이 부분이 중요하다. enqueue를 보자.
     queue->rear = capacity - 1;
     queue->array = new int[queue->capacity];
     return queue;
 }
  
-// Queue is full when size
-// becomes equal to the capacity
+// 큐가 꽉 찼을 때 true를 반환한다.
+// 크기가 용량과 같아지면 큐가 꽉 찼다는 뜻이다.
 int isFull(Queue* queue)
 {
     return (queue->size == queue->capacity);
 }
  
-// Queue is empty when size is 0
+// 큐가 비었을 때 true를 반환한다.
+// 크기가 0이면 큐가 비어 있다는 뜻이다.
 int isEmpty(Queue* queue)
 {
     return (queue->size == 0);
 }
  
-// Function to add an item to the queue.
-// It changes rear and size
+// 큐에 항목을 추가하는 함수.
+// rear와 size를 변경한다.
 void enqueue(Queue* queue, int item)
 {
     if (isFull(queue))
         return;
-    queue->rear = (queue->rear + 1)
-                  % queue->capacity;
+    queue->rear = (queue->rear + 1) % queue->capacity;
     queue->array[queue->rear] = item;
     queue->size = queue->size + 1;
     cout << item << " enqueued to queue\n";
 }
  
-// Function to remove an item from queue.
-// It changes front and size
+// 큐에서 항목을 제거하는 함수.
+// front와 size를 변경한다.
 int dequeue(Queue* queue)
 {
     if (isEmpty(queue))
         return INT_MIN;
     int item = queue->array[queue->front];
-    queue->front = (queue->front + 1)
-                   % queue->capacity;
+    queue->front = (queue->front + 1) % queue->capacity;
     queue->size = queue->size - 1;
     return item;
 }
  
-// Function to get front of queue
+// 큐의 앞쪽 항목을 얻는 함수
 int front(Queue* queue)
 {
     if (isEmpty(queue))
@@ -73,7 +71,7 @@ int front(Queue* queue)
     return queue->array[queue->front];
 }
  
-// Function to get rear of queue
+// 큐의 뒷쪽 항목을 얻는 함수
 int rear(Queue* queue)
 {
     if (isEmpty(queue))
@@ -81,7 +79,7 @@ int rear(Queue* queue)
     return queue->array[queue->rear];
 }
  
-// Driver code
+// 드라이버 코드
 int main()
 {
     Queue* queue = createQueue(1000);
@@ -91,12 +89,10 @@ int main()
     enqueue(queue, 30);
     enqueue(queue, 40);
  
-    cout << dequeue(queue)
-         << " dequeued from queue\n";
+    cout << dequeue(queue) << " dequeued from queue\n";
  
-    cout << "Front item is "
-         << front(queue) << endl;
-    cout << "Rear item is "
-         << rear(queue) << endl;
+    cout << "Front item is " << front(queue) << endl;
+    cout << "Rear item is " << rear(queue) << endl;
  
     return 0;
+}

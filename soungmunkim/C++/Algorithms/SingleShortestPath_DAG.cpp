@@ -1,5 +1,5 @@
 /*
-[최단 경로 찾기 DAG]
+[최단 경로 찾기 DAG] shortest path 프린트하는 함수
 cycle이 없음 (directed graph)
 
 (base) soungmunkim@gimseongmun-ui-MacBookPro Algorithms % g++ -std=c++17 SingleShortestPath_DAG.cpp -o DAG
@@ -113,7 +113,7 @@ int main() {
 
     DAG_shortest_path(g, source);
 
-    // 결과 출력
+    // 이 부분은 시작 정점(source)에서 i번째 정점까지의 최단 거리를 출력
     for (int i = 0; i < V; i++) {
         cout << "Distance from " << source << " to " << i << " is: " << shortestDistance[i] << endl;
     }

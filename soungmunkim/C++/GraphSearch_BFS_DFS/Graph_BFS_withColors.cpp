@@ -7,20 +7,22 @@
 #include <vector>
 #include <queue>
 
+using namespace std;
+
 // 그래프 노드를 정의하는 클래스
 class GNode {
 public:
-    std::string id;     // 노드의 고유 ID
+    string id;     // 노드의 고유 ID
     char color;         // 노드의 색상 ('W': 흰색, 'G': 회색, 'B': 검은색)
     int distance;       // 시작 노드로부터의 거리
     GNode* parent;      // 부모 노드
 
     // 생성자: 노드 초기화
-    GNode(std::string id, char c = 'W', int d = -1, GNode* p = nullptr)
+    GNode(string id, char c = 'W', int d = -1, GNode* p = nullptr)
         : id(id), color(c), distance(d), parent(p) {}
 
     // 노드의 정보를 문자열로 반환
-    std::string to_string() const {
+    string to_string() const {
         if (parent) {
             return "(" + id + ", " + color + ", " + std::to_string(distance) + ", " + parent->id + ")";
         }
@@ -29,30 +31,30 @@ public:
 };
 
 // 그래프를 화면에 출력하는 함수
-void printGraph(const std::map<GNode*, std::vector<GNode*>>& G) {
+void printGraph(const map<GNode*, vector<GNode*>>& G) {
     for (const auto& pair : G) {
-        std::cout << pair.first->to_string() << ": ";
+        cout << pair.first->to_string() << ": ";
         for (const auto& u : pair.second) {
-            std::cout << u->to_string();
+            cout << u->to_string();
         }
-        std::cout << std::endl;
+        cout << endl;
     }
-    std::cout << "=========================================" << std::endl;
+    cout << "=========================================" << endl;
 }
 
 // 큐의 내용을 화면에 출력하는 함수
-void printQueue(const std::queue<GNode*>& Q) {
-    std::queue<GNode*> tempQ = Q;
-    std::cout << "Q = ";
+void printQueue(const queue<GNode*>& Q) {
+    queue<GNode*> tempQ = Q;
+    cout << "Q = ";
     while (!tempQ.empty()) {
-        std::cout << tempQ.front()->to_string();
+        cout << tempQ.front()->to_string();
         tempQ.pop();
     }
-    std::cout << std::endl;
+    cout << endl;
 }
 
 // BFS 알고리즘을 수행하는 함수
-void bfs(std::map<GNode*, std::vector<GNode*>>& G, GNode* s) {
+void bfs(map<GNode*, vector<GNode*>>& G, GNode* s) {
     // 그래프의 모든 노드를 초기 상태로 설정
     for (auto& pair : G) {
         pair.first->color = 'W';
@@ -62,7 +64,7 @@ void bfs(std::map<GNode*, std::vector<GNode*>>& G, GNode* s) {
     s->color = 'G';
     s->distance = 0;
 
-    std::queue<GNode*> Q;
+    queue<GNode*> Q;
     Q.push(s);  // 시작 노드를 큐에 넣음
 
     printGraph(G);
@@ -99,7 +101,7 @@ int main() {
     GNode y("y");
 
     // 그래프 구성 (인접 리스트로 표현)
-    std::map<GNode*, std::vector<GNode*>> G;
+    map<GNode*, vector<GNode*>> G;
     G[&r] = {&s, &v};
     G[&s] = {&w, &r};
     G[&t] = {&w, &x, &u};

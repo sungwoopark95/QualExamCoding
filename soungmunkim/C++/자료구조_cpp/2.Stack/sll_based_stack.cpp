@@ -3,104 +3,97 @@
 
 using namespace std;
  
-// creating a linked list;
+// 연결 리스트를 생성합니다.
 class Node {
 public:
-    int data;
-    Node* link;
-   
-    // Constructor
+    int data;     // 노드에 저장될 데이터
+    Node* link;   // 다음 노드를 가리키는 포인터
+
+    // 생성자
     Node(int n)
     {
         this->data = n;
         this->link = NULL;
     }
 };
- 
+
 class Stack {
-    Node* top;
- 
+    Node* top;  // 스택의 최상단을 가리키는 포인터
+
 public:
+    // 기본 생성자: top 초기화
     Stack() { top = NULL; }
- 
+
+    // 데이터를 스택에 푸시
     void push(int data)
     {
- 
-        // Create new node temp and allocate memory in heap
+        // 새 노드 temp를 힙에 메모리 할당
         Node* temp = new Node(data);
- 
-        // Check if stack (heap) is full.
-        // Then inserting an element would
-        // lead to stack overflow
+
+        // 스택(힙)이 가득 찼는지 확인.
+        // 요소를 삽입하면 스택 오버플로우가 발생할 수 있음
         if (!temp) {
             cout << "\nStack Overflow";
             exit(1);
         }
- 
-        // Initialize data into temp data field
+
+        // temp 데이터 필드를 초기화
         temp->data = data;
- 
-        // Put top pointer reference into temp link
+
+        // temp 링크에 top 포인터 참조 삽입
         temp->link = top;
- 
-        // Make temp as top of Stack
+
+        // Stack의 top으로 temp 설정
         top = temp;
     }
- 
-    // Utility function to check if
-    // the stack is empty or not
+
+    // 스택이 비어 있는지 확인하는 유틸리티 함수
     bool isEmpty()
     {
-        // If top is NULL it means that
-        // there are no elements are in stack
+        // top이 NULL이면 스택에 요소가 없다는 의미
         return top == NULL;
     }
- 
-    // Utility function to return top element in a stack
+
+    // 스택의 최상단 요소를 반환하는 유틸리티 함수
     int peek()
     {
-        // If stack is not empty , return the top element
+        // 스택이 비어 있지 않으면 top 요소 반환
         if (!isEmpty())
             return top->data;
         else
             exit(1);
     }
- 
-    // Function to remove
-    // a key from given queue q
+
+    // 스택에서 키를 제거하는 함수
     void pop()
     {
         Node* temp;
- 
-        // Check for stack underflow
+
+        // 스택 언더플로우 확인
         if (top == NULL) {
             cout << "\nStack Underflow" << endl;
             exit(1);
         }
         else {
- 
-            // Assign top to temp
+            // top을 temp에 할당
             temp = top;
- 
-            // Assign second node to top
+
+            // 두 번째 노드를 top으로 설정
             top = top->link;
- 
-            // This will automatically destroy
-            // the link between first node and second node
- 
-            // Release memory of top node
-            // i.e delete the node
+
+            // 이것은 첫 번째 노드와 두 번째 노드 사이의 링크를 자동으로 파괴함
+
+            // top 노드의 메모리 해제 (노드 삭제)
             free(temp);
         }
     }
- 
-    // Function to print all the
-    // elements of the stack
+
+    // 스택의 모든 요소를 출력하는 함수
     void display()
     {
         Node* temp;
- 
-        // Check for stack underflow
+
+        // 스택 언더플로우 확인
         if (top == NULL) {
             cout << "\nStack Underflow";
             exit(1);
@@ -108,11 +101,11 @@ public:
         else {
             temp = top;
             while (temp != NULL) {
- 
-                // Print node data
+
+                // 노드 데이터 출력
                 cout << temp->data;
- 
-                // Assign temp link to temp
+
+                // temp 링크에 temp 할당
                 temp = temp->link;
                 if (temp != NULL)
                     cout << " -> ";
@@ -120,6 +113,7 @@ public:
         }
     }
 };
+
  
 // Driven Program
 int main()
