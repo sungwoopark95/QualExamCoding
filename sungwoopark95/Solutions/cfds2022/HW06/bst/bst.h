@@ -1,4 +1,6 @@
+#include <iostream>
 #pragma once
+using namespace std;
 
 class BST {
 public:

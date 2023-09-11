@@ -51,6 +51,12 @@ public:
     }
 };
 
+int main() {
+    Solution* Sol = new Solution();
+
+    string s = "()";
+    cout << Sol->isValid(s) << endl;
+}
 
 // map = {
 //     "[" : "]",

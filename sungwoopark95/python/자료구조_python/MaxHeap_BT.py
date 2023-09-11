@@ -106,15 +106,22 @@ class MaxHeap:
 if __name__ == "__main__":
     h = MaxHeap()
     
+    h.push(3)
+    h.push(4)
+    h.push(5)
     h.push(10)
     h.push(2)
-    h.push(11)
+    h.push(6)
     h.push(7)
-    h.push(20)
-    h.push(3)
     
-    print(10 in h)
-    print(12 in h)
-    
+    print(f"Is 3 in the heap? : {3 in h}")
+    print(f"Is 24 in the heap? : {24 in h}")
+        
+    is_start = True
+    print("Popped : ", end='')
     while not h.isEmpty():
-        print(f"Heap : {[node.val for node in h.nodes]}\tPopped : {h.pop()}")
+        if not is_start:
+            print(" ", end='')
+        print(f"{h.pop()}", end='')
+        is_start = False
+    print()

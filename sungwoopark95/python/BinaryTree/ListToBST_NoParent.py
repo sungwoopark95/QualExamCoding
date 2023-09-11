@@ -3,7 +3,6 @@ from typing import List
 class TreeNode:
     def __init__(self, key):
         self.key = key          # 노드에 저장될 키 값
-        self.parent = None      # 부모 노드
         self.left = None        # 왼쪽 자식 노드
         self.right = None       # 오른쪽 자식 노드
 

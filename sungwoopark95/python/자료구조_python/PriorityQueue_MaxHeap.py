@@ -1,6 +1,7 @@
 from typing import List
 
-class MaxHeap:
+## MaxHeap을 사용한 priority queue
+class PriorityQueue:
     def __init__(self) -> None:
         self.heap = []
 
@@ -45,29 +46,30 @@ class MaxHeap:
         value = self.heap.pop(0)
         self.build_heap()
         return value
+    
+    def peek(self):
+        if self.isEmpty():
+            return None
+        return self.heap[0]
 
 
 if __name__ == "__main__":
-    h = MaxHeap()
+    pq = PriorityQueue()
     
-    h.push(3)
-    h.push(4)
-    h.push(5)
-    h.push(10)
-    h.push(2)
-    h.push(6)
-    h.push(7)
+    pq.push(4)
+    pq.push(5)
+    pq.push(10)
+    pq.push(2)
+    pq.push(6)
+    pq.push(7)
     
-    print(f"Is 3 in the heap? : {3 in h}")
-    print(f"Is 24 in the heap? : {24 in h}")
-    
-    print(h.heap)
+    print(f"Top element: {pq.peek()}")
     
     is_start = True
     print("Popped : ", end='')
-    while not h.isEmpty():
+    while not pq.isEmpty():
         if not is_start:
             print(" ", end='')
-        print(f"{h.pop()}", end='')
+        print(f"{pq.pop()}", end='')
         is_start = False
     print()
