@@ -17,9 +17,11 @@
 
 (base) soungmunkim@gimseongmun-ui-MacBookPro BinaryTree_BST_RBT % g++ -std=c++17 450_DeleteNodeInBST_SM.cpp -o test
 (base) soungmunkim@gimseongmun-ui-MacBookPro BinaryTree_BST_RBT % ./test                                           
+(base) soungmunkim@gimseongmun-ui-MacBookPro BinaryTree_BST_RBT % g++ -std=c++17 450_DeleteNodeInBST_SM.cpp -o test
+(base) soungmunkim@gimseongmun-ui-MacBookPro BinaryTree_BST_RBT % ./test                                           
 Enter node values in [a,b,c,...] format: [5,3,6,2,4,None,7]
 Enter the key to delete: 3
-5 4 6 2 Null Null 7 
+[5, 4, 6, 2, Null, Null, 7]
 */
 
 #include <iostream>
@@ -161,7 +163,7 @@ TreeNode* delete_node(TreeNode* root, int key) {
 //         return {};
 //     }
 
-//     vector<int> result;       // 결과를 저장할 벡터
+//     vector<int> output;       // 결과를 저장할 벡터
 //     queue<TreeNode*> queue;   // BFS를 위한 큐. 파이썬의 리스트 대신 C++의 queue를 사용합니다.
 //     queue.push(node);        // 초기 큐에 루트 노드 저장
 
@@ -169,7 +171,7 @@ TreeNode* delete_node(TreeNode* root, int key) {
 //         TreeNode* current = queue.front(); // 큐에서 노드 꺼내기
 //         queue.pop();          // 꺼낸 노드는 큐에서 제거
 
-//         result.push_back(current->key);  // 결과 벡터에 키 값 추가
+//         output.push_back(current->key);  // 결과 벡터에 키 값 추가
 
 //         if (current->left) {  // 왼쪽 자식이 있으면 큐에 추가
 //             queue.push(current->left);
@@ -179,7 +181,7 @@ TreeNode* delete_node(TreeNode* root, int key) {
 //         }
 //     }
 
-//     return result;            // 결과 벡터 반환
+//     return output;            // 결과 벡터 반환
 // }
 
 
@@ -189,7 +191,7 @@ vector<string> print_BST(TreeNode* node) {
         return {};
     }
 
-    vector<string> result; // 결과를 저장할 벡터
+    vector<string> output; // 결과를 저장할 벡터
     queue<TreeNode*> queue; // BFS를 위한 큐
 
     queue.push(node); // 루트 노드를 큐에 삽입
@@ -200,45 +202,45 @@ vector<string> print_BST(TreeNode* node) {
         queue.pop(); // 큐에서 노드를 제거
 
         if (current) { // 노드가 존재하면
-            result.push_back(to_string(current->key)); // 노드의 키 값을 결과에 추가
+            output.push_back(to_string(current->key)); // 노드의 키 값을 결과에 추가
             queue.push(current->left); // 왼쪽 자식을 큐에 삽입
             queue.push(current->right); // 오른쪽 자식을 큐에 삽입
         } else { // 노드가 비어 있으면
-            result.push_back("Null"); // "Null"을 결과에 추가
+            output.push_back("Null"); // "Null"을 결과에 추가
         }
     }
 
-    while (!result.empty() && result.back() == "Null") { // 결과의 맨 뒤에 "Null"이 있으면 제거
-        result.pop_back();
+    while (!output.empty() && output.back() == "Null") { // 결과의 맨 뒤에 "Null"이 있으면 제거
+        output.pop_back();
     }
 
-    return result; // 결과 반환
+    return output; // 결과 반환
 }
 
 
 // /*---------------------- in order는 sorted list 형태로 나옴 -----------------*/
 // vector<int> print_BST(TreeNode* node) {
-//     vector<int> result; // 중위 순회의 결과를 저장할 벡터
+//     vector<int> output; // 중위 순회의 결과를 저장할 벡터
 
 //     // 중위 순회를 위한 재귀 함수
 //     function<void(TreeNode*)> inorder = [&](TreeNode* n) {
 //         if (n) {  // 현재 노드가 null이 아니면
 //             inorder(n->left);             // 왼쪽 서브트리를 순회합니다.
-//             result.push_back(n->key);     // 현재 노드의 키 값을 결과 벡터에 추가합니다.
+//             output.push_back(n->key);     // 현재 노드의 키 값을 결과 벡터에 추가합니다.
 //             inorder(n->right);            // 오른쪽 서브트리를 순회합니다.
 //         }
 //     };
 
 //     inorder(node);  // 시작 노드에서 중위 순회를 실행합니다.
-//     return result;  // 결과 벡터를 반환합니다.
+//     return output;  // 결과 벡터를 반환합니다.
 // }
 
 // // 주어진 키 값에 해당하는 노드를 삭제하고 중위 순회 결과를 반환합니다.
 // vector<int> deleteNode(vector<int>& root, int key) {
 //     TreeNode* tree = create_BST(root);      // 벡터를 기반으로 이진 탐색 트리를 생성합니다.
-//     TreeNode* result_tree = delete_tree(tree, key);  // 주어진 키 값을 가진 노드를 삭제합니다.
+//     TreeNode* output_tree = delete_tree(tree, key);  // 주어진 키 값을 가진 노드를 삭제합니다.
 
-//     return print_BST(result_tree);  // 삭제한 후의 트리를 중위 순회한 결과를 반환합니다.
+//     return print_BST(output_tree);  // 삭제한 후의 트리를 중위 순회한 결과를 반환합니다.
 // }
 
 
@@ -272,11 +274,14 @@ int main() {
     root = delete_node(root, key); // 노드 삭제
     vector<string> output = print_BST(root); // 트리 출력
     
-    for (string val : output) {
-        cout << val << " ";
+    cout << "[";
+    for (size_t i = 0; i < output.size(); ++i) {
+        cout << output[i];
+        if (i != output.size() - 1)
+            cout << ", ";
     }
-    cout << endl;
-
+    cout << "]" << endl; 
+    
     return 0; // 프로그램 종료
 }
 

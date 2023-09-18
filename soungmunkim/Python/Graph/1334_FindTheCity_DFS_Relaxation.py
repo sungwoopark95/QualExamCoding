@@ -1,6 +1,6 @@
 """
 [find the city]
-** Bellman Ford's algorithm으로 각 source마다 Shortest path 구해서 진행함 **
+** DFS + Relaxation algorithm으로 각 source마다 Shortest path 구해서 진행함 **
 
 최소한의 거리를 구했을 때 distance threshold를 넘지 않는 경로 중에서 (at most = 이하)
 방문할 수 있는 city 개수가 가장 적은 애들 중 node id(city number)가 가장 큰 것

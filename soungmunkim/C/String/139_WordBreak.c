@@ -57,7 +57,12 @@ False
 
 /*-------------- string replace 함수 구현 -------------------*/
 
-// 문자열 대체 함수
+/*
+이 함수는 문자열 내의 특정 문자열(find)을 다른 문자열(replace)로 대체합니다.
+예를 들면, replace("Hello World!", "World", "Everyone")를 호출하면 
+결과는 "Hello Everyone!"가 됩니다.
+이 함수는 주어진 문자열에서 find 문자열의 모든 인스턴스를 찾아 replace 문자열로 대체합니다.
+*/
 char* replace(char* str, const char* find, const char* replace) {
     // 결과 문자열을 저장할 포인터
     char* result;

@@ -1,3 +1,8 @@
+/*
+Vertex 버전으로 푼 것
+shortest path 찾기 + 프린트 하는 함수 포함
+*/
+
 #include <iostream>
 #include <vector>
 #include <unordered_map>

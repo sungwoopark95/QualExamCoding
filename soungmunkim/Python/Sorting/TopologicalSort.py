@@ -12,8 +12,8 @@ class Graph:
         indegree_count = [0] * self.vertices  # 모든 정점의 진입차수를 0으로 초기화
 
         for key in self.graph:
-            for item in self.graph[key]:
-                indegree_count[item] += 1  # 진입차수 카운트 증가
+            for neighbor in self.graph[key]:
+                indegree_count[neighbor] += 1  # 진입차수 카운트 증가
 
         Q = deque()
 
@@ -21,7 +21,7 @@ class Graph:
             if indegree_count[i] == 0:  # 진입차수가 0인 정점을 큐에 넣는다.
                 Q.append(i)
 
-        visited_node = 0  # 방문한 정점 수
+       
         order = []  # 위상 순서를 저장할 리스트
 
         while Q:  # 큐가 비어있지 않으면 반복
@@ -33,9 +33,9 @@ class Graph:
                 if indegree_count[v] == 0:  # 진입차수가 0이면
                     Q.append(v)  # 큐에 추가
 
-            visited_node += 1  # 방문한 정점 수 증가
-
-        if visited_node != self.vertices:  # 모든 정점을 방문하지 않은 경우
+      
+        # 모든 정점을 방문하지 않은 경우 (cycle 존재함)
+        if len(order) != self.vertices:  # 모든 정점을 방문하지 않은 경우
             print("There's a cycle present in the Graph.\nGiven graph is not DAG")
             return
 

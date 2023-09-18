@@ -45,3 +45,7 @@ def permuteUnique(nums: List[int]) -> List[List[int]]:
     backtrack(0)
 
     return permutations
+
+if __name__ == "__main__":
+    nums = [1,1,2]
+    print(permuteUnique(nums))
