@@ -114,6 +114,13 @@ def bellman_ford_mst(G:Graph, start:Vertex) -> List[Tuple[Vertex]]:
         for edge in G.GetEdge():
             u, v, w = edge
             relax(u, v, w)
+
+    # check negative cycle
+    for edge in G.GetEdge():
+        u, v, w = edge
+        if v.key > u.key + w:
+            print("Negative weight cycle detected.")
+            return None
     
     mst = []
     for v in G.GetVertices():
@@ -130,6 +137,13 @@ def bellman_ford_shortest_paths(G:Graph, start:Vertex) -> Dict[Vertex, List[Vert
         for edge in G.GetEdge():
             u, v, w = edge
             relax(u, v, w)
+    
+    # check negative cycle
+    for edge in G.GetEdge():
+        u, v, w = edge
+        if v.key > u.key + w:
+            print("Negative weight cycle detected.")
+            return None
     
     for v in G.GetVertices():
         shortest_paths[v] = construct_path(start, v)        

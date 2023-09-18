@@ -96,11 +96,51 @@ def pop(head, idx):
         # idx가 연결 리스트의 길이보다 크거나 같은 경우 None을 반환합니다.
         return None
 
+def linked_to_list(head:ListNode) -> list:
+    ans = []
+    curr = head
+    while curr:
+        ans.append(curr.val)
+        curr = curr.next
+    return ans
+
+def insert_sort_list(head:ListNode):
+    dummy = ListNode()
+    dummy.next = head # dummy node를 head에 연결
+    prev = dummy # dummy node에 Prev 포인트
+    
+    curr = head # head node에 curr 포인트
+    # next = curr.next
+    
+    # curr node만 움직이면서 보기 
+    while curr: 
+        # 만약 비교할 Curr.next 값이 있고 현재 값이 다음 값보다 큰 경우 (swap)
+        # 4 > 2
+        if curr.next and curr.val > curr.next.val:
+            # insert할 위치 찾기 (prev 이동시키면서)
+            # prev.next.val = 4 > curr.next = 2 (while 스킵)
+            while prev.next.val < curr.next.val:
+                prev = prev.next
+            
+            # temp = curr.next = 2
+            temp = curr.next # curr.next를 temp로 지정해서 풀기
+            curr.next = temp.next # 4 다음 노드 -> temp.next = 1
+            temp.next = prev.next # 2 다음 노드 -> prev 다음 = 4
+            prev.next = temp        # prev 다음 노드 -> temp = 2
+        
+            prev = dummy # dummy로 prev 보내기 (바꾸고 역할 끝)
+        else:
+            curr = curr.next # curr을 다음으로 넘기기
+        # next = curr.next
+    return prev.next # dummy.next
+
 if __name__ == "__main__":
     l1 = create_linked_list([1,1,1])
     append(l1, 3)
     append(l1, 4)
     append(l1, 5)
+    listed = linked_to_list(l1)
+    print(listed)
     print_linked_list(l1, [])
     
     insert(l1, 1, 4)

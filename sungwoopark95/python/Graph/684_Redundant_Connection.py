@@ -37,7 +37,7 @@ def findRedundantConnection(edges: List[List[int]]) -> List[int]:
     # 모든 간선에 대해 순회합니다.
     for edge in edges:
         # print(f"From {edge[0]} to {edge[1]} - {union(parent, edge[0], edge[1])}")
-        # print(f"After union - parent : {parent}")
+        print(f"After union - parent : {parent}")
         # 간선의 두 노드를 연결하려고 시도합니다.
         if not union(parent, edge[0], edge[1]):
             # 만약 edge[0]과 edge[1]이 이미 연결되어 있다면, 해당 간선이 불필요한 간선임을 의미합니다.
