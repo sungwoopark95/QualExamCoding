@@ -18,6 +18,8 @@ LICENSE
 *.yml
 stb_image_resize.h
 stb_image.h
+*.xlsx
 
 stb/
 eigen3/
+qual-exam/
