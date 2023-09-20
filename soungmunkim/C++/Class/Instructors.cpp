@@ -28,6 +28,7 @@
 // 필요한 헤더 파일 포함
 #include <stdlib.h>  // 기본 C 라이브러리 함수들을 위한 헤더
 #include <iostream>  // 입출력 관련 함수들을 위한 헤더
+#include <ctime>
 
 using namespace std;  // 표준 네임스페이스 사용
 
@@ -178,7 +179,7 @@ void Professor::Cope() {
 
 /*---------------------- 추가된 것 -------------------------*/
 // 주어진 범위 내의 랜덤 숫자를 반환하는 함수
-static int RandomNum(int num){
+int Instructor::RandomNum(int num){
     return rand() % num;
 }
 

@@ -19,6 +19,8 @@
 7. void EndMonth(): the account will be sent this message once a month,
     so it should levy any monthly fees at that time and print out the account monthly summary.
 */
+#include <stdio.h>
+#include <stdlib.h>
 
 /*---------------------- Account Header file -------------------------*/
 class Account{
@@ -45,9 +47,6 @@ class Account{
 };
 
 /*---------------------- Account cpp file -------------------------*/
-#include <stdio.h>
-#include <stdlib.h>
-// #include "account.h"
 
 // Constructor defined 하기
 Account::Account(void){ // Account에 private(protected) 변수 설정
@@ -72,7 +71,7 @@ float Account::GetBalance(void) {
 Factors same common behavior up which will occur in the subclasses' EndMonth()
 */
 void Account::EndMonthUtil(void){
-    printf("transactions:%d balance:%f\n", transactions, balance); // print out the account monthly summary
+    printf("transactions:%d\tbalance:%f\n", transactions, balance); // print out the account monthly summary
     transactions = 0;
 }
 
@@ -169,7 +168,7 @@ void Account::TestOneMonth(void){
     // 각 account마다 account number, transaction balance print out 시킴
     // 만들어지는 특정 account가 기본 account type이기 때문에 EndMonth()에 접근 가능
     for (accountNum=0; accountNum < NUMACCOUNTS; accountNum++){
-        printf("account:%d", accountNum);
+        printf("account:%d\t", accountNum);
         accounts[accountNum]->EndMonth();
     }
 }
