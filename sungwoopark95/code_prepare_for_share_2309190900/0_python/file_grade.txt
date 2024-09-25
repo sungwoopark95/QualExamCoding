@@ -1,6 +1,0 @@
-# This file is for a GSDS course “computing foundations for data science.
-# This file is created by Hyung-Sin Kim
-# This file contains students’ grades.
-Inhoe 2021-1111 A+
-Jaewook 2021-2222 A+
-Peter 2022-3333 B+

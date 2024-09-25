@@ -1,1 +1,0 @@
-https://cs.stackexchange.com/questions/151152/maximum-difference-between-maximum-and-minimum-frequency-in-a-subarray
